@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="text-center">{{ action }}</h1>
+<form method="POST" class="border p-4 rounded bg-light-pink" onsubmit="return validateDates()">
+    <div class="mb-3">
+        <label for="hotel_id" class="form-label">Hotel:</label>
+        <select name="hotel_id" id="hotel_id" class="form-select" required>
+            {% for hotel in hotels %}
+            <option value="{{ hotel[0] }}" {% if booking and booking[1] == hotel[0] %}selected{% endif %}>{{ hotel[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="room_id" class="form-label">Room:</label>
+        <select name="room_id" id="room_id" class="form-select" required>
+            {% for room in rooms %}
+            <option value="{{ room[0] }}" {% if booking and booking[2] == room[0] %}selected{% endif %}>{{ room[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <select name="status" id="status" class="form-select" required>
+            <option value="Available" {% if booking and booking[3] == "Available" %}selected{% endif %}>Available</option>
+            <option value="Booked" {% if booking and booking[3] == "Booked" %}selected{% endif %}>Booked</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="start_date" class="form-label">Start Date:</label>
+        <input type="date" name="start_date" id="start_date" class="form-control" required value="{{ booking[4] if booking else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="end_date" class="form-label">End Date:</label>
+        <input type="date" name="end_date" id="end_date" class="form-control" required value="{{ booking[5] if booking else '' }}">
+    </div>
+    <div id="date-error" class="text-danger mb-3" style="display: none;">End Date must be after Start Date.</div>
+    <button type="submit" class="btn btn-pink">{{ action }}</button>
+</form>
+
+<script>
+    function validateDates() {
+        const startDate = new Date(document.getElementById('start_date').value);
+        const endDate = new Date(document.getElementById('end_date').value);
+
+        if (endDate <= startDate) {
+            document.getElementById('date-error').style.display = 'block';
+            return false;
+        }
+        document.getElementById('date-error').style.display = 'none';
+        return true;
+    }
+</script>
+{% endblock %}

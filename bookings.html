@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="text-center">Manage Bookings</h1>
+<a href="/make-reservation" class="btn btn-pink mb-3">Make a Reservation</a>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Hotel Name</th>
+            <th>Room Number</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking[0] }}</td>
+            <td>{{ booking[1] }}</td>
+            <td>{{ booking[2] }}</td>
+            <td>{{ booking[3] }}</td>
+            <td>{{ booking[4] }}</td>
+            <td>{{ booking[5] }}</td>
+            <td>
+                <a href="/edit-reservation/{{ booking[0] }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/cancel-reservation/{{ booking[0] }}" class="btn btn-danger btn-sm">Cancel</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

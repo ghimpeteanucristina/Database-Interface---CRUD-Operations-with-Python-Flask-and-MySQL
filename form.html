@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="text-center">{{ action }} {{ table }}</h1>
+<form method="POST" class="border p-4 rounded bg-light-pink">
+    {% if table == "Hotel" %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" name="name" id="name" class="form-control" required value="{{ data[1] if data else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <input type="text" name="address" id="address" class="form-control" required value="{{ data[2] if data else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating:</label>
+        <input type="text" name="rating" id="rating" class="form-control" required value="{{ data[3] if data else '' }}">
+    </div>
+    {% elif table == "Room" %}
+    <div class="mb-3">
+        <label for="room_number" class="form-label">Room Number:</label>
+        <input type="text" name="room_number" id="room_number" class="form-control" required value="{{ data[1] if data else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="type" class="form-label">Room Type:</label>
+        <input type="text" name="type" id="type" class="form-control" required value="{{ data[2] if data else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="text" name="price" id="price" class="form-control" required value="{{ data[3] if data else '' }}">
+    </div>
+    {% endif %}
+    <button type="submit" class="btn btn-pink">{{ action }}</button>
+</form>
+{% endblock %}

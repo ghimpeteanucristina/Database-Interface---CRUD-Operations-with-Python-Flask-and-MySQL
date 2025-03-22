@@ -1,0 +1,81 @@
+/* Setează fundalul general al paginii */
+body {
+    background-color: #fff5f7; /* Roz deschis */
+    color: #4a4a4a; /* Gri închis pentru text */
+}
+
+/* Stiluri pentru titluri */
+h1 {
+    color: #e83e8c; /* Roz intens */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Stil mov pentru butoanele de jos */
+.btn-purple {
+    background-color: #9b59b6; /* Mov */
+    color: white; /* Text alb */
+    border: none;
+    transition: background-color 0.3s ease; /* Tranziție la hover */
+}
+
+.btn-purple:hover {
+    background-color: #8e44ad; /* Mov închis la hover */
+    color: white;
+}
+
+/* Stil roz pentru butoanele din navbar */
+.btn-pink {
+    background-color: #e83e8c; /* Roz */
+    color: white; /* Text alb */
+    border: none;
+    transition: background-color 0.3s ease; /* Tranziție la hover */
+}
+
+.btn-pink:hover {
+    background-color: #ff80ab; /* Roz deschis la hover */
+    color: white;
+}
+
+/* Fundal ușor pentru blocuri */
+.bg-light-pink {
+    background-color: #ffeef2; /* Roz foarte deschis */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Stil pentru tabel */
+.table-hover tbody tr:hover {
+    background-color: #ffeef2; /* Roz deschis la hover */
+}
+
+/* Link activ din navbar */
+.navbar a {
+    color: white;
+    background-color: transparent;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.navbar a.active {
+    background-color: #e83e8c; /* Roz pentru link activ */
+    color: white !important;
+}
+
+/* Stiluri pentru butoane mici */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Centrare generală */
+.text-center {
+    text-align: center;
+}
+
+/* Tranziție pentru hover */
+button, a {
+    transition: all 0.3s ease-in-out;
+}

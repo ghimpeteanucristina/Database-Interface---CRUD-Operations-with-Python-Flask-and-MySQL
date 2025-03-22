@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="text-center">Manage Hotels</h1>
+<a href="/add-hotel" class="btn btn-pink mb-3">Add New Hotel</a>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hotel in hotels %}
+        <tr>
+            <td>{{ hotel[0] }}</td>
+            <td>{{ hotel[1] }}</td>
+            <td>{{ hotel[2] }}</td>
+            <td>{{ hotel[3] }}</td>
+            <td>
+                <a href="/edit-hotel/{{ hotel[0] }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete-hotel/{{ hotel[0] }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
